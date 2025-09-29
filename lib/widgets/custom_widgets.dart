@@ -298,7 +298,7 @@ class MatchCard extends StatelessWidget {
         contentPadding: EdgeInsets.all(16),
         leading: CircleAvatar(
           radius: 30,
-          backgroundImage: match.user.photos.isNotEmpty
+          backgroundImage: match.user.photos.isNotEmpty && match.user.photos.first.isNotEmpty
               ? NetworkImage(match.user.photos.first)
               : null,
           child: match.user.photos.isEmpty
@@ -316,15 +316,15 @@ class MatchCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              match.lastMessage.isNotEmpty 
-                  ? match.lastMessage 
-                  : '¡Tienes un nuevo match!',
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
+  (match.lastMessage != null && match.lastMessage!.isNotEmpty) 
+      ? match.lastMessage! 
+      : '¡Tienes un nuevo match!',
+  maxLines: 2,
+  overflow: TextOverflow.ellipsis,
+),
             SizedBox(height: 4),
             Text(
-              Utils.formatTimeAgo(match.lastMessageTime),
+              Utils.formatTimeAgo(match.lastMessageTime ?? match.matchedAt),
               style: TextStyle(
                 color: Colors.grey[600],
                 fontSize: 12,

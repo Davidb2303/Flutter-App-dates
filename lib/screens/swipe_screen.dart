@@ -89,7 +89,7 @@ class _SwipeScreenState extends State<SwipeScreen> with TickerProviderStateMixin
     await _cardController.forward();
     
     // Procesar el swipe
-    final isMatch = await _userService.processSwipe(user.id, isLike);
+    final isMatch = await _userService.processSwipe(user.userId, isLike);
     
     if (isMatch && isLike) {
       _matchedUser = user;

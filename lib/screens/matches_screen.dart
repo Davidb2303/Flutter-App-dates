@@ -279,7 +279,7 @@ class _MatchesScreenState extends State<MatchesScreen> with SingleTickerProvider
       );
     }
 
-    final matchesWithMessages = _matches.where((m) => m.lastMessage.isNotEmpty).toList();
+    final matchesWithMessages = _matches.where((m) => m.lastMessage?.isNotEmpty ?? false).toList();
 
     if (matchesWithMessages.isEmpty) {
       return Center(

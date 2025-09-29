@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Validators {
   static String? validateEmail(String? email) {
     if (email == null || email.isEmpty) {

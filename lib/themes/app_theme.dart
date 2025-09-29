@@ -26,7 +26,7 @@ class AppTheme {
       }),
       primaryColor: primaryColor,
       scaffoldBackgroundColor: backgroundColor,
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: cardColor,
         elevation: 8,
         shape: RoundedRectangleBorder(
@@ -95,7 +95,7 @@ class AppTheme {
     return ThemeData.dark().copyWith(
       primaryColor: primaryColor,
       scaffoldBackgroundColor: Color(0xFF121212),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: Color(0xFF1E1E1E),
         elevation: 8,
         shape: RoundedRectangleBorder(
