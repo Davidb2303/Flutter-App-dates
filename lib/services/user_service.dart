@@ -27,28 +27,26 @@ class UserService {
 
   /// Login de usuario
   Future<bool> login(String username, String password) async {
-    try {
-      final response = await http.post(
-        Uri.parse('$baseUrl/auth/login'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({
-          'username': username,
-          'password': password,
-        }),
-      );
+  await Future.delayed(Duration(seconds: 1)); // simula red
 
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        _authToken = data['token'];
-        _currentUser = User.fromJson(data['user']);
-        return true;
-      }
-      return false;
-    } catch (e) {
-      print('Error en login: $e');
-      return false;
-    }
+  if (username == "test@gmail.com" && password == "123456") {
+    _authToken = "fake_token";
+    _currentUser = User(
+      userId: 1,
+      username: username,
+      passwordHash: "hashed_pass",
+      photoUrl: "https://via.placeholder.com/150",
+      name: "Usuario Demo",
+      age: 25,
+      interests: ["Flutter", "Dart"],
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
+    );
+    return true;
   }
+
+  return false;
+}
 
   /// Registro de nuevo usuario
   Future<bool> register(String name, String username, String password) async {
