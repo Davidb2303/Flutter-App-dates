@@ -1,0 +1,24 @@
+name: Cora
+description: Proyecto de materia de aplicaciones moviles.
+publish_to: 'none' # Para evitar publicar accidentalmente
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  supabase: ^2.9.2   # Dependencia de supabase, ajusta la versión si quieres
+
+  # Otras dependencias comunes que podrías necesitar:
+  cupertino_icons: ^1.0.2
+
+  shelf: ^1.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

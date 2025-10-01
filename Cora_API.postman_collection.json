@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "Cora API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Signup",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": { "raw": "{{base_url}}/auth/signup", "host": ["{{base_url}}"], "path": ["auth", "signup"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\",\n  \"username\": \"testuser\",\n  \"name\": \"Test User\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Signin",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": { "raw": "{{base_url}}/auth/signin", "host": ["{{base_url}}"], "path": ["auth", "signin"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{auth_token}}" }],
+        "url": { "raw": "{{base_url}}/auth/profile", "host": ["{{base_url}}"], "path": ["auth", "profile"] }
+      }
+    },
+    {
+      "name": "User - Explore",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{base_url}}/users/explore/{{user_id}}", "host": ["{{base_url}}"], "path": ["users", "explore", "{{user_id}}"] }
+      }
+    },
+    {
+      "name": "Like - Add",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{base_url}}/likes/add", "host": ["{{base_url}}"], "path": ["likes", "add"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{user_id}}\",\n  \"targetUserId\": \"{{target_user_id}}\",\n  \"isLike\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Match - Get Matches",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{base_url}}/matches/user/{{user_id}}", "host": ["{{base_url}}"], "path": ["matches", "user", "{{user_id}}"] }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8080/api" },
+    { "key": "auth_token", "value": "" },
+    { "key": "user_id", "value": "REPLACE_WITH_USER_ID" },
+    { "key": "target_user_id", "value": "REPLACE_WITH_TARGET_USER_ID" }
+  ]
+}
